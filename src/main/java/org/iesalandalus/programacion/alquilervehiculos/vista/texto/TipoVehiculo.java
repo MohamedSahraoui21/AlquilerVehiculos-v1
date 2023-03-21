@@ -1,16 +1,12 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista.texto;
 
-import javax.naming.OperationNotSupportedException;
-
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Autobus;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Furgoneta;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Turismo;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
 
 public enum TipoVehiculo {
-	TURISMO("Turismo"),
-	AUTOBUS("Autobus"), 
-	FURGONETA("Furgoneta");
+	TURISMO("Turismo"), AUTOBUS("Autobus"), FURGONETA("Furgoneta");
 
 	private String nombre;
 
@@ -19,35 +15,30 @@ public enum TipoVehiculo {
 	}
 
 	private static boolean esOrdinalValido(int ordinal) {
-		boolean ordinalCorrecto = true;
-		if (ordinal < 0 || ordinal >= values().length) {
-			ordinalCorrecto = false;
-		}
-		return ordinalCorrecto;
+		return ordinal >= 0 && ordinal < TipoVehiculo.values().length;
 	}
 
-	public static TipoVehiculo get(int ordinal) throws OperationNotSupportedException {
+	public static TipoVehiculo get(int ordinal) {
 		if (!esOrdinalValido(ordinal)) {
-			throw new OperationNotSupportedException("El ordinal pasado no es correcto");
+			throw new IllegalArgumentException("Error: la opción no es válida.");
 		}
-		return values()[ordinal];
+		return TipoVehiculo.values()[ordinal];
 	}
 
 	public static TipoVehiculo get(Vehiculo vehiculo) {
-		int indice = -1;
+		TipoVehiculo tipoVehiculo = null;
 		if (vehiculo instanceof Turismo) {
-			indice = TipoVehiculo.TURISMO.ordinal();
+			tipoVehiculo = TipoVehiculo.TURISMO;
 		} else if (vehiculo instanceof Autobus) {
-			indice = TipoVehiculo.AUTOBUS.ordinal();
+			tipoVehiculo = TipoVehiculo.AUTOBUS;
 		} else if (vehiculo instanceof Furgoneta) {
-			indice = TipoVehiculo.FURGONETA.ordinal();
+			tipoVehiculo = TipoVehiculo.FURGONETA;
 		}
-		return values()[indice];
+		return tipoVehiculo;
 	}
 
 	@Override
 	public String toString() {
 		return String.format("%s", nombre);
 	}
-
 }
