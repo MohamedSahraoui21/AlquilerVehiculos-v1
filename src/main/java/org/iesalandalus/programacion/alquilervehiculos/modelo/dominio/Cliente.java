@@ -11,8 +11,8 @@ public class Cliente {
 	
 	//expresiones regulares//
 	
-	private static final String ER_NOMBRE = "^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+((\\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*)";
-	private static final String ER_DNI = "^[0-9]{8}[A-Z]$";
+	private static final String ER_NOMBRE = "[A-ZÁÉÍÓÚÜÑ][a-záéíóúÜñ]+([ ][A-ZÁÉÍÓÚÜÑ][a-záéíóúÜñ]+)*";
+	private static final String ER_DNI = "([0-9]{8})([A-Za-z])";
 	private static final String ER_TELEFONO = "^(\\+34|0034|34)?[6789]\\d{8}$";;
    //atributos//
 	private String nombre;
