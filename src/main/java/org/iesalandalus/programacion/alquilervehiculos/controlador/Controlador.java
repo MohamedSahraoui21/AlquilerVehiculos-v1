@@ -18,10 +18,10 @@ public class Controlador {
 
 	public Controlador(Modelo modelo, Vista vista) {
 		if (modelo == null) {
-			throw new NullPointerException("El modelo no puede ser nulo");
+			throw new NullPointerException("el modelo no puede ser nulo");
 		}
 		if (vista == null) {
-			throw new NullPointerException("La vista no puede ser nula");
+			throw new NullPointerException("la vista no puede ser nula");
 		}
 		this.vista = vista;
 		this.modelo = modelo;

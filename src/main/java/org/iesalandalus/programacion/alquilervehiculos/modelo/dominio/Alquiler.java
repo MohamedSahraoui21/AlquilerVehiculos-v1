@@ -103,7 +103,6 @@ public class Alquiler {
 
 	public int getPrecio() {
 		int dias = 0;
-		
 		if (fechaDevolucion != null) {
 			dias = Period.between(fechaAlquiler, fechaDevolucion).getDays();
 		}

@@ -1,11 +1,12 @@
 package org.iesalandalus.programacion.alquilervehiculos.modelo.dominio;
-
+//furgoneta es una clase hija de vehiculo
 public class Furgoneta extends Vehiculo {
-	public static int FACTOR_PMA=100;
-	public static int FACTOR_PLAZAS=1;
-	public int pma;
-	public int plazas;
-	
+	//añadir constantes y atributos
+	private static final int FACTOR_PMA=100;
+	private static final int FACTOR_PLAZAS=1;
+	private int pma;
+	private int plazas;
+	//crear constructores
 	public Furgoneta(String marca,String modelo,int pma,int plazas,String matricula) {
 		super(marca,modelo,matricula);
 		setPma(pma);
@@ -14,11 +15,11 @@ public class Furgoneta extends Vehiculo {
 	public Furgoneta(Furgoneta furgoneta ) {
 		super(furgoneta);
 		
-		
 		pma=furgoneta.getPma();
 		plazas=furgoneta.getPlazas();
 		
 	}
+	//getters y setters
 	public int getPma() {
 		return pma;
 	}
@@ -37,6 +38,7 @@ public class Furgoneta extends Vehiculo {
 		}
 		this.plazas = plazas;
 	}
+	//crear metodo getFctoriaPrecio
 	@Override
 	public int getFactorPrecio() {
 		return pma/FACTOR_PMA+plazas*FACTOR_PLAZAS;

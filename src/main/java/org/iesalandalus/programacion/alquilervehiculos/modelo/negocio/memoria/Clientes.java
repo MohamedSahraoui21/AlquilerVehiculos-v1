@@ -12,6 +12,7 @@ public class Clientes implements IClientes  {
    //crear atributo coleccioneCliente tipo list//
 	private List<Cliente> coleccioneCliente;
 	
+    //constructor por defecto que crea el arraylist
 
 	public Clientes() {
 		coleccioneCliente = new ArrayList<>();
@@ -22,11 +23,13 @@ public class Clientes implements IClientes  {
 	public List<Cliente> get() {
 		return new ArrayList<Cliente>(coleccioneCliente);
 	}
+    //voy a utlizar un metodo de arraylist (.size) para saber la cantidad de una lista
 
 	@Override
 	public int getCantidad() {
 		return coleccioneCliente.size();
 	}
+    //voy a utlizar un metodo de arraylist (.Add) para añadir un valor a la lista
 
 	@Override
 	public void insertar(Cliente cliente) throws OperationNotSupportedException {
@@ -40,7 +43,7 @@ public class Clientes implements IClientes  {
 
 		coleccioneCliente.add(cliente);
 	}
-       //metodo buscar//
+    //voy a utlizar un metodo de Arraylist (.get) para buscar un valor en la lista
 	@Override
 	public Cliente buscar(Cliente cliente) {
 		if (cliente == null) {
@@ -51,7 +54,7 @@ public class Clientes implements IClientes  {
 		}
 		return null;
 	}
-      //metodo borrar//
+	   //voy a utilizar un metodo de arraylist (.remove) para borrar un elemento de la lista
 	@Override
 	public void borrar(Cliente cliente) throws OperationNotSupportedException {
 
@@ -63,7 +66,7 @@ public class Clientes implements IClientes  {
 		}
 		coleccioneCliente.remove(cliente);
 	}
-     //metodo modificar//
+    // voy a utilizar un metodo de Arraylist (.set()) para modificar una lista
 	@Override
 	public void modificar(Cliente cliente, String nombre, String telefono) throws OperationNotSupportedException {
 

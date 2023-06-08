@@ -13,6 +13,7 @@ public class Vehiculos implements IVehiculos {
 	
 
 	private List<Vehiculo> coleccionVehiculos;
+    //constructor por defecto que crea el arraylist
 
 	public Vehiculos() {
 		coleccionVehiculos = new ArrayList<>();
@@ -22,12 +23,14 @@ public class Vehiculos implements IVehiculos {
 	public List<Vehiculo> get() {
 		return coleccionVehiculos;
 	}
+    //voy a utlizar un metodo de arraylist (.size) para saber la cantidad de una lista
 
 	@Override
 	public int getCantidad() {
 		return coleccionVehiculos.size();
 	} 
-	//crear metodo insertar//
+	//crear metodo insertar voy a utlizar un metodo de arraylist (.Add) para añadir un valor a la lista
+
 	
 
 	@Override
@@ -41,18 +44,23 @@ public class Vehiculos implements IVehiculos {
 		}
 		coleccionVehiculos.add(vehiculo);
 	}
-      //crear metodo buscar//
+    //voy a utlizar un metodo de Arraylist (.get) para buscar un valor en la lista
 	@Override
 	public Vehiculo buscar(Vehiculo vehiculo) {
+		Vehiculo vehiculoEncontrado;
 		if (vehiculo == null) {
 			throw new NullPointerException("ERROR: No se puede buscar un vehículo nulo.");
 		}
-		if (coleccionVehiculos.contains(vehiculo)) {
-			return vehiculo;
+
+		int indice = coleccionVehiculos.indexOf(vehiculo);
+		if (indice != -1) {
+			vehiculoEncontrado = coleccionVehiculos.get(indice);
+		} else {
+			vehiculoEncontrado = null;
 		}
-		return null;
+		return vehiculoEncontrado;
 	}
-     //crear metodo borrar//
+	   //voy a utilizar un metodo de arraylist (.remove) para borrar un elemento de la lista
 	@Override
 	public void borrar(Vehiculo vehiculo) throws OperationNotSupportedException {
 		if (vehiculo == null) {

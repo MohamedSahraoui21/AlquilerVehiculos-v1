@@ -1,15 +1,16 @@
 package org.iesalandalus.programacion.alquilervehiculos.modelo.dominio;
 
 import java.util.Objects;
-
+//vehiculo es una clase madre
 public abstract class Vehiculo {
+	//añadir constantes y atributos
 
 	private static final String ER_MARCA = "[A-Z][a-z]+([ -]?[A-Z][a-z]+)*|[A-Z]+";
-	private static final String ER_MATRICULA = "[0-9]{4}[BCDFGHJKLMNPRSTVWXYZ]{3}";
+	private static final String ER_MATRICULA = "\\d{4}[BCDFGHJKLMNPRSTVWXYZ]{3}";
 	private String marca;
 	private String modelo;
 	private String matricula;
-
+	//crear constructores
 	protected Vehiculo(String marca, String modelo, String matricula) {
 		setMarca(marca);
 		setModelo(modelo);
@@ -39,11 +40,11 @@ public abstract class Vehiculo {
 
 		return tipoVehiculo;
 	}
-
+    //declarar metodo abstarct 
 	public abstract int getFactorPrecio();
 
 	public static Vehiculo getVehiculoConMatricula(String matricula) {
-		return new Turismo("KIA", "CEED", 250, matricula);
+		return new Turismo("KIA", "Turismo", 90, matricula);
 	}
 
 	public String getMarca() {

@@ -1,20 +1,23 @@
 package org.iesalandalus.programacion.alquilervehiculos.modelo.dominio;
-
+//autobus es una clase hija de vehiculo
 public class Autobus extends Vehiculo{
-	public static final int FACTOR_PLAZAS=2;
-	public int plazas;
-    
+	//añadir constantes y atributos
+
+	private static final int FACTOR_PLAZAS=2;
+	private int plazas;
+	//crear constructores
+
 	public Autobus(String marca,String modelo,int plazas,String matricula) {
 		super(marca,modelo,matricula);
 		setPlazas(plazas);
 	}
 	public Autobus(Autobus autobus) {
 		super(autobus);
-		if(autobus==null) {
-			throw new NullPointerException("ERROR: No es posible copiar un vehículo nulo.");
-		}
+		
 		plazas=autobus.getPlazas();
 	}
+	//getters y setters
+
 	public int getPlazas() {
 		return plazas;
 	}
@@ -24,6 +27,8 @@ public class Autobus extends Vehiculo{
 		}
 		this.plazas = plazas;
 	}
+	//crear metodo getFctoriaPrecio
+
 	@Override
 	public int getFactorPrecio() {
 		return plazas * FACTOR_PLAZAS;

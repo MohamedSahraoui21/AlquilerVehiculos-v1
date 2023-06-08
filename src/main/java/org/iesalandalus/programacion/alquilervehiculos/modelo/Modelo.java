@@ -12,7 +12,7 @@ import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IAlquilere
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IClientes;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IFuenteDatos;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IVehiculos;
-
+//definir Modelo como clase abstracta
 public abstract class Modelo {
 
 	private IClientes clientes;
@@ -42,9 +42,7 @@ public abstract class Modelo {
 		alquileres = fuenteDatos.crearAlquileres();
 	}
 
-	public void terminar() {
-		System.out.print("El modelo ha terminado :)");
-	}
+	
 
 	public abstract void insertar(Cliente cliente) throws OperationNotSupportedException;
 
@@ -80,5 +78,9 @@ public abstract class Modelo {
 	public abstract List<Alquiler> getListaAlquileres(Cliente cliente);
 
 	public abstract List<Alquiler> getListaAlquileres(Vehiculo vehiculo);
+	//insertar un mensaje simple para terminar
+			public void terminar() {
+				System.out.println("el modelo ha terminado.");
+			}
 
 }

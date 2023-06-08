@@ -1,11 +1,13 @@
 package org.iesalandalus.programacion.alquilervehiculos.modelo.dominio;
 
 
-
+//turismo es una clase hija de vehiculo por eso utilizo extends
 public class Turismo extends Vehiculo {
+	//añadir constantes y atributos
+
 	private static final int FACTOR_CILINDRADA=10;
 	private int cilindrada;
-	//constructores
+	//crear constructores
 	public Turismo(String marca, String modelo, int cilindrada, String matricula) {
 		super(marca,modelo,matricula);
 		
@@ -14,14 +16,12 @@ public class Turismo extends Vehiculo {
 
 	public Turismo(Turismo turismo) {
 		super(turismo);
-		if(turismo==null) {
-			throw new NullPointerException("sjdsfhgsf");
-		}
 		
-	
 		cilindrada = turismo.getCilindrada();
 		
 	}
+	//getters y setters
+
     public int getCilindrada() {
 		return cilindrada;
 	}
@@ -32,6 +32,8 @@ public class Turismo extends Vehiculo {
 		}
 		this.cilindrada = cilindrada;
 	}
+	//crear metodo getFctoriaPrecio
+
 	@Override
 	public int getFactorPrecio() {
 		return cilindrada/FACTOR_CILINDRADA;

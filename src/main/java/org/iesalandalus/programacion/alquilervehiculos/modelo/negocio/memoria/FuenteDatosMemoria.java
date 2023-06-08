@@ -7,7 +7,6 @@ import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IVehiculos
 
 public class FuenteDatosMemoria implements IFuenteDatos  {
 	
-	//crear los metodos
 	
 	@Override
 	public IClientes crearClientes() {
